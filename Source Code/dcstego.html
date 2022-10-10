@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Image Steganography Tool</title>
+    <script type="text/javascript" src="dcimage.js"></script>
+    <script type="text/javascript" src="dcutils.js"></script>
+    <style type="text/css">
+    	.thumbnail { width: 200px;}
+    	.submitBtn { color:red; margin-top:10px  }
+    </style>
+</head>
+<body>
+	<button onclick="help()">Help Menu</button>
+	<button id="toggleBtn" onclick="handleToggleMode()">Toggle Mode</button>
+	<form id="encodeForm" onsubmit="return handleEncodeRequest(event)">
+		<input type="text" id="enc_password" placeholder="password" required>
+	    <button class="submitBtn">Encode</button>        
+		<h2>Plain Image:</h2>
+	    <input 
+	        type="file"
+	        name="cover_img"
+	        accept="image/png, image/jpeg, image/bmp"
+	        required 
+	        onchange="handleImageChanged(event)"
+	        >
+	        <br>
+	        <img id="cover_img" hidden>
+	        <img class="thumbnail" id="cover_img_thumbnail">
+		<h2>Embedded Image:</h2>
+	    <input 
+	        type="file"
+	        name="embedded_img"
+	        accept="image/png, image/jpeg, image/bmp"
+	        onchange="handleImageChanged(event)"
+	        required 
+	        >
+	        <br>
+	        <img id="embedded_img" hidden>
+	        <img class="thumbnail" id="embedded_img_thumbnail">
+	</form>
+	<form id="decodeForm" onsubmit="return handleDecodeRequest(event)" style='display:none'>
+		<input type="text" id="dec_password" placeholder="password" required>
+	    <button class="submitBtn">Decode</button> 
+		<h2>Stego Image:</h2>
+	    <input 
+	        type="file"
+	        name="stego_img"
+	        accept="image/png, image/jpeg, image/bmp"
+	        required 
+	        onchange="handleImageChanged(event)"
+	        >
+        <br>
+        <img id="stego_img" hidden>
+		<img class="thumbnail" id="stego_img_thumbnail">
+	</form>
+	<h2>Output Image:</h2>
+	<img class="thumbnail" id="output_img_thumbnail">
+    <br>
+	<a id="output_img_hyperlink" rel="nofollow">Click to download</a>
+</body>
+</html>
