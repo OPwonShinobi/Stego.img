@@ -1,5 +1,5 @@
 # ImgStego.js
-A **simple** image steganography tool in VanillaJS.
+A **simple** JS image steganography tool I wrote for school.
 
 0 imports, 0 installation, 0 dependencies
 
